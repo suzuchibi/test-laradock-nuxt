@@ -11,7 +11,7 @@ root@97879d72a823:/var/www# <- これがでたら、ログイン中
 ```
 
 ## 2. Laravelプロジェクトを生成する。
-Workspaceにログインした状態で、composerを実行する。
+workspaceにログインした状態で、composerを実行する。
 今回は[ src ]というディレクトリ名で作成。
 ```
 $ composer create-project --prefer-dist laravel/laravel src
