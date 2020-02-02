@@ -3,6 +3,7 @@
 /data
 .env
 /.project
+/.laradock
 .docker-sync
 /jenkins/jenkins_home
 
