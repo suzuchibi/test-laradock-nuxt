@@ -15,13 +15,14 @@
             >
               <v-col>
                 <v-card>
-                  <v-toolbar
-                    color="primary"
-                    flat
-                  >
-                    <v-toolbar-title>Login</v-toolbar-title>
-                  </v-toolbar>
-                  <v-card-text>
+                  <v-card-title class="pb-0">
+                    <div class="mx-auto">
+                      <v-icon color="primary" class="mb-0" x-large style="font-size: 84px;">
+                        account_circle
+                      </v-icon>
+                    </div>
+                  </v-card-title>
+                  <v-card-text class="pb-0">
                     <v-text-field
                       label="User-ID"
                       name="login"
@@ -29,7 +30,7 @@
                       type="text"
                     />
                   </v-card-text>
-                  <v-card-text class="pt-0">
+                  <v-card-text class="py-0">
                     <v-text-field
                       label="Password"
                       name="password"
@@ -46,6 +47,9 @@
                     </div>
                   </v-card-actions>
                 </v-card>
+                <p class="text-center">
+                  https://sample.com
+                </p>
               </v-col>
             </v-row>
           </v-col>
@@ -69,3 +73,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+titleIcon {
+  font-size: 120px;
+}
+</style>
