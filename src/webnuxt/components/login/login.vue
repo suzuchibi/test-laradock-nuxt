@@ -14,7 +14,7 @@
               justify="center"
             >
               <v-col>
-                <v-card>
+                <v-card flat>
                   <v-card-title class="pb-0">
                     <div class="mx-auto">
                       <v-icon color="primary" class="mb-0" x-large style="font-size: 84px;">
@@ -73,9 +73,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-titleIcon {
-  font-size: 120px;
-}
-</style>
