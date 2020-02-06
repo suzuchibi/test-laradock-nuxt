@@ -28,6 +28,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/scss/layout.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -66,7 +67,7 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/assets/scss/variables.scss'],
     theme: {
       dark: true,
       themes: {

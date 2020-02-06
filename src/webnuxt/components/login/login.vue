@@ -16,10 +16,11 @@
               <v-col>
                 <v-card flat>
                   <v-card-title class="pb-0">
-                    <div class="mx-auto">
-                      <v-icon color="primary" class="mb-0" x-large style="font-size: 84px;">
+                    <div class="text-center mx-auto">
+                      <v-icon color="primary" class="mb-0" size="96">
                         account_circle
                       </v-icon>
+                      <p>Login Form</p>
                     </div>
                   </v-card-title>
                   <v-card-text class="pb-0">
@@ -48,7 +49,7 @@
                   </v-card-actions>
                 </v-card>
                 <p class="text-center">
-                  https://sample.com
+                  {{ url }}
                 </p>
               </v-col>
             </v-row>
@@ -61,6 +62,12 @@
 
 <script>
 export default {
+  props: {
+    url: {
+      type: String,
+      required: true
+    }
+  },
   data () {
     return {
       username: '',
@@ -70,6 +77,9 @@ export default {
         alert: false
       }
     }
+  },
+  created () {
+    this.$vuetify.theme.dark = true
   }
 }
 </script>
