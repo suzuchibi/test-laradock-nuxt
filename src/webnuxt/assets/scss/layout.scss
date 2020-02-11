@@ -10,6 +10,10 @@ html {
   box-sizing: border-box;
 }
 
+#__layout .theme--light.v-application {
+  background: #f3f3f3;
+}
+
 *,
 *:before,
 *:after {
@@ -44,4 +48,73 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+
+
+/* Button CSS */
+#app .btnAdd {
+  color: #c2f8f5;
+  letter-spacing: 0;
+  box-shadow: 
+    0 1px 2px 0 rgba(38, 166, 154, 0.61),
+    0 3px 5px 0 rgba(38, 166, 154, 0.4);
+}
+#app .btnAdd:hover {
+  box-shadow: 
+    0 1px 2px 0 rgba(38, 166, 154, 0.61),
+    0 3px 5px 0 rgba(38, 166, 154, 0.4),
+    0 -1px 10px 0 rgba(38, 166, 154, 0.2),
+    0 5px 10px 0 rgba(38, 166, 154, 0.5);
+}
+#app .btnEdit {
+  color: #d5e8f8;
+  letter-spacing: 0;
+  box-shadow: 
+    0 1px 2px 0 rgba(30, 136, 229, 0.61),
+    0 3px 5px 0 rgba(30, 136, 229, 0.4);
+}
+#app .btnEdit:hover {
+  box-shadow: 
+    0 1px 2px 0 rgba(30, 136, 229, 0.61),
+    0 3px 5px 0 rgba(30, 136, 229, 0.4),
+    0 -1px 10px 0 rgba(30, 136, 229, 0.2),
+    0 5px 10px 0 rgba(30, 136, 229, 0.5);
+}
+#app .btnSort {
+  color: #d0eff3;
+  letter-spacing: 0;
+  box-shadow: 
+    0 1px 2px 0 rgba(0, 172, 193, 0.61),
+    0 3px 5px 0 rgba(0, 172, 193, 0.4);
+}
+#app .btnSort:hover {
+  box-shadow: 
+    0 1px 2px 0 rgba(0, 172, 193, 0.61),
+    0 3px 5px 0 rgba(0, 172, 193, 0.4),
+    0 -1px 10px 0 rgba(0, 172, 193, 0.2),
+    0 5px 10px 0 rgba(0, 172, 193, 0.5);
+}
+#app .btnDelete {
+  color: #fde3ec;
+  letter-spacing: 0;
+  box-shadow: 
+    0 1px 2px 0 rgba(219, 51, 113, 0.61),
+    0 3px 5px 0 rgba(219, 51, 113, 0.4);
+}
+#app .btnDelete:hover {
+  box-shadow: 
+    0 1px 2px 0 rgba(219, 51, 113, 0.61),
+    0 3px 5px 0 rgba(219, 51, 113, 0.4),
+    0 -1px 10px 0 rgba(219, 51, 113, 0.2),
+    0 5px 10px 0 rgba(219, 51, 113, 0.5);
+}
+
+/* ページ遷移トランジション */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }

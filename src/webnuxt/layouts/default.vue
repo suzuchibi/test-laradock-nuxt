@@ -12,15 +12,19 @@
         :clip="clipped"
       />
       <v-content>
-        <v-container fluid>
+        <v-container fluid class="pa-8">
           <nuxt />
         </v-container>
+        <p class="text-center text--secondary caption">
+          Copyright &copy; 2020 All Rights Reserved.
+        </p>
       </v-content>
     </v-app>
   </div>
 </template>
 
 <script>
+import App from '~/assets/config/app.js'
 import Header from '~/components/common/header.vue'
 import Nav from '~/components/common/nav.vue'
 
@@ -29,10 +33,16 @@ export default {
     Header,
     Nav
   },
+  head () {
+    return {
+      title: `${App.pageTitle} - ${App.siteName}`
+    }
+  },
   data () {
     return {
       drawer: true,
-      clipped: true
+      clipped: true,
+      siteUrl: App.siteUrl
     }
   },
   created () {

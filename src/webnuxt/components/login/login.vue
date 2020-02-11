@@ -14,7 +14,7 @@
               justify="center"
             >
               <v-col>
-                <v-card flat>
+                <v-card class="mb-2" flat>
                   <v-card-title class="pb-0">
                     <div class="text-center mx-auto">
                       <v-icon color="primary" class="mb-0" size="96">
@@ -48,7 +48,7 @@
                     </div>
                   </v-card-actions>
                 </v-card>
-                <p class="text-center">
+                <p class="text-center text--secondary body-2">
                   {{ url }}
                 </p>
               </v-col>

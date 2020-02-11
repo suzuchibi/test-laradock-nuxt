@@ -8,7 +8,10 @@
     <div class="mb-2">
       <v-list nav dense>
         <v-subheader>Main Contents</v-subheader>
-        <v-list-item :to="{path: '/'}" router>
+        <v-list-item
+          :to="{path: '/'}"
+          router
+        >
           <v-list-item-action>
             <v-icon>home</v-icon>
           </v-list-item-action>
@@ -16,19 +19,23 @@
             <v-list-item-title>ホーム</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item :to="{path: '/test'}" router>
+
+        <v-list-item
+          :to="{path: '/detail'}"
+          router
+        >
           <v-list-item-action>
             <v-icon>home</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>テスト</v-list-item-title>
+            <v-list-item-title>詳細情報</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
       <v-divider />
     </div>
     <div class="px-2">
-      <v-btn rounded block color="secondary" dark>
+      <v-btn color="secondary" class="mb-3" rounded block dark>
         LOG OUT<v-icon class="ml-2">
           exit_to_app
         </v-icon>

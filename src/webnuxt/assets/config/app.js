@@ -1,6 +1,7 @@
 export default {
   /* Setting */
-  siteName: 'sample',
+  siteName: 'サンプルサイト',
   siteFullName: 'sample',
-  adminTitle: '管理'
+  siteUrl: 'https://admin.sample.com',
+  pageTitle: '管理'
 }
