@@ -22,6 +22,7 @@
 
         <v-list-item
           :to="{path: '/detail'}"
+          active-class="primary white--text"
           router
         >
           <v-list-item-action>
