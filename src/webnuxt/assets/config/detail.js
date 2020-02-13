@@ -1,5 +1,7 @@
 export default {
   /* Setting */
+  ID: 'detail',
+  title: '詳細情報',
   breadCrumbs: [
     { text: 'Home', disabled: false, to: '/' },
     { text: '詳細情報', disabled: true, to: '/detail/' }

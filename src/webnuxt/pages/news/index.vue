@@ -6,13 +6,12 @@
     <Table />
   </div>
 </template>
-
 <script>
-import Detail from '~/assets/config/detail.js'
+import News from '~/assets/config/news.js'
 import breadCrumbs from '~/components/common/breadCrumbs.vue'
 import Title from '~/components/common/titleSimple.vue'
 import Action from '~/components/common/actionArea.vue'
-import Table from '~/components/modules/detail/table.vue'
+import Table from '~/components/modules/news/table.vue'
 
 export default {
   components: {
@@ -24,9 +23,9 @@ export default {
   computed: {
     fetchConfig () {
       return {
-        id: Detail.ID,
-        title: Detail.title,
-        breadCrumbs: Detail.breadCrumbs
+        id: News.ID,
+        title: News.title,
+        breadCrumbs: News.breadCrumbs
       }
     }
   }

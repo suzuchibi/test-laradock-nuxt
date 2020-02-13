@@ -10,6 +10,7 @@
         <v-subheader>Main Contents</v-subheader>
         <v-list-item
           :to="{path: '/'}"
+          active-class="primary white--text"
           router
         >
           <v-list-item-action>
@@ -21,12 +22,25 @@
         </v-list-item>
 
         <v-list-item
+          :to="{path: '/news'}"
+          active-class="primary white--text"
+          router
+        >
+          <v-list-item-action>
+            <v-icon>insert_comment</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>お知らせ</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item
           :to="{path: '/detail'}"
           active-class="primary white--text"
           router
         >
           <v-list-item-action>
-            <v-icon>home</v-icon>
+            <v-icon>business</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>詳細情報</v-list-item-title>
