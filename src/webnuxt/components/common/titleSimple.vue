@@ -1,5 +1,5 @@
 <template>
-  <div class="headline text-center mb-6">
+  <div class="headline text-center mb-0">
     {{ titleText }}
   </div>
 </template>
