@@ -27,6 +27,18 @@ APP_CODE_PATH_HOST=../src <- ソースコードディレクトリに変更。
 # DATA_PATH_HOST=~/.laradock/data
 DATA_PATH_HOST=.laradock/data
 ```
+apache2 のドキュメントルートを変更
+```
+### APACHE ################################################
+
+〜省略〜
+#APACHE_DOCUMENT_ROOT=/var/www
+APACHE_DOCUMENT_ROOT=/var/www/public
+```
+**[ .env ]を修正したら、必ずビルドしましょう。**
+```
+# docker-compose build --no-cache apache2
+```
 
 ## 4. [ ./src/config/app.php ]を修正する。
 ```
