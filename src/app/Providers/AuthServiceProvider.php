@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -24,12 +25,14 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-        //$callback = null;
-        //$options = [
-        //    'prefix' => 'api/oauth',
-        //    'namespace' => '\Laravel\Passport\Http\Controllers',
-        //];
-        //Passport::routes($callback, $options);
+        //通常設定
+        //Passport::routes();
+        $callback = null;
+        $options = [
+            'prefix' => 'api/oauth',
+            'namespace' => '\Laravel\Passport\Http\Controllers',
+        ];
+        Passport::routes($callback, $options);
         //
     }
 }
