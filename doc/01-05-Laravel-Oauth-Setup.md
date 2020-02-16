@@ -1,9 +1,15 @@
 # LarabelPassportの実装
 laravelpassportを使用して、API認証を実装する。  
+```
 ルート確認コマンド
-```
 php artisan route:list
+キャッシュクリアコマンド
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
 ```
+
 
 ## 1. laravelにAuth設定
 
@@ -59,4 +65,107 @@ mysql> show tables;
 | password_resets               |
 | users                         |
 +-------------------------------+
+```
+
+## 3. Passportのテーブルの値設定
+作成したテーブルにプリセット設定を注入
+```
+$ php artisan passport:install
+```
+ここでClient IDとClient Secretが表示されるので  
+**Client ID=2のSecretを控えおく**。後で使用。
+```
+Personal access client created successfully.
+Client ID: 1
+Client secret: ########################################
+Password grant client created successfully.
+Client ID: 2
+Client secret: ######################################## <-- ここの部分
+```
+**.envに追加しておく**
+```
+CLIENT_SECRET_CODE=##############
+```
+
+## 4. Passportの各設定ファイル
+
+**[ app/User.php ]の変更**
+```
+namespace App;
+
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens; <-- 追加
+
+class User extends Authenticatable
+{
+    use HasApiTokens, Notifiable; <-- HasApiTokens追加
+```
+
+**[ app/Providers/AuthServiceProvider.php ]**
+```
+namespace App\Providers;
+
+use Laravel\Passport\Passport;   <- 追加
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    protected $policies = [
+        // 'App\Model' => 'App\Policies\ModelPolicy',
+    ];
+
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Passport::routes();  <- 追加
+    }
+}
+
+```
+
+**[ app/config/auth.php ]**
+```
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'api' => [
+            //'driver' => 'token',
+            'driver' => 'passport',  <- ここを変更
+            'provider' => 'users',
+            'hash' => false,
+        ],
+    ],
+
+```
+
+## 5. Passportのルート変更
+
+LaravelのoauthをAPIから実施させるためにルートを変更
+**[ app/Providers/AuthServiceProvider.php ]**
+```
+    public function boot()
+    {
+        $this->registerPolicies();
+        //通常設定
+        //Passport::routes();
+        $callback = null;  <- ここを追加
+        $options = [       <- ここを追加
+            'prefix' => 'api/oauth',      <- ここを追加
+            'namespace' => '\Laravel\Passport\Http\Controllers',  <- ここを追加
+        ];                 <- ここを追加
+        Passport::routes($callback, $options);  <- ここを追加
+        //
+    }
+```
+**一旦ルートのキャッシュをクリアして、ルートを確認。**
+```
+php artisan route:clear
+php artisan route:list
 ```

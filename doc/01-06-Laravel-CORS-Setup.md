@@ -1,4 +1,4 @@
-# AdminからAPIにアクセスするために、CORS対策を行う
+## AdminからAPIにアクセスするために、CORS対策を行う
 ルート確認コマンド
 ```
 php artisan route:list
@@ -14,11 +14,11 @@ $ composer require fruitcake/laravel-cors
 
 2. 各ファイルを設定する。  
 **[ app/Http/Kernel.php ]**  
-"$middleware" の配列に追加する
+"$middleware" の配列に追加する（グローバル設定）
 ```
 protected $middleware = [
     /* 省略 */
-    \Barryvdh\Cors\HandleCors::class,
+    \Fruitcake\Cors\HandleCors::class,
 ]
 ```
 
@@ -34,8 +34,5 @@ APIのみにCORS対策する
 
 4. 完了したら、Laravelのキャッシュクリア
 ```
-$ php artisan config:cache
+$ php artisan config:clear
 ```
-
-## 2. アクセストークンにもCORS対策の実装
-上記だと、APIのみなので、アクセストークン発行時にも設定する。
