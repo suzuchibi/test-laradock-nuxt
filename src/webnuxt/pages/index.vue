@@ -22,6 +22,19 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  asyncData ({ app }) {
+    app.$axios.$get(`${process.env.API_BASE_URL}/api/test`)
+      .then((res) => {
+        // eslint-disable-next-line
+        console.log(res)
+      })
+  },
+  created () {
+    // eslint-disable-next-line
+    console.log(`${process.env.BASE_URL}`)
+    // eslint-disable-next-line
+    console.log(`${process.env.API_BASE_URL}`)
   }
 }
 </script>
