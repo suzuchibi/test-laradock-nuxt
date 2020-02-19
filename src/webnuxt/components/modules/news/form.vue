@@ -85,8 +85,10 @@
             <span class="mr-6">アイコン設定</span>
           </v-col>
           <v-col sm="9">
-            <v-text-field
-              type="text"
+            <v-select
+              :items="setting.viewSetting"
+              item-color="#4A148C"
+              class="mb-6"
             />
           </v-col>
         </v-row>
@@ -97,8 +99,10 @@
             <span class="mr-6">公開設定</span>
           </v-col>
           <v-col sm="9">
-            <v-text-field
-              type="text"
+            <v-select
+              :items="setting.viewSetting"
+              item-color="#4A148C"
+              class="mb-6"
             />
           </v-col>
         </v-row>
@@ -115,6 +119,12 @@ import Title from '~/components/common/titleLogoForm.vue'
 export default {
   components: {
     Title
+  },
+  props: {
+    setting: {
+      type: Object,
+      required: true
+    }
   }
 }
 </script>

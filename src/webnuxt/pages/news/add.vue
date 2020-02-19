@@ -1,13 +1,14 @@
 <template>
   <div>
     <breadCrumbs :breadCrumbs="fetchConfig.breadCrumbs" />
-    <Title :titleText="`${fetchConfig.title}の新規記事`" />
+    <Title :titleText="`${fetchConfig.title}の新規追加`" />
     <BackToPage :path="`/${fetchConfig.id}`" :class="cssBack" />
-    <Form />
+    <Form :setting="fetchCommon" />
   </div>
 </template>
 
 <script>
+import Common from '~/assets/config/common.js'
 import News from '~/assets/config/news.js'
 import breadCrumbs from '~/components/common/breadCrumbs.vue'
 import Title from '~/components/common/titleSimple.vue'
@@ -22,6 +23,11 @@ export default {
     Form
   },
   computed: {
+    fetchCommon () {
+      return {
+        viewSetting: Common.viewFlagSetting
+      }
+    },
     fetchConfig () {
       return {
         id: News.ID,
